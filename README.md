@@ -1,8 +1,8 @@
-# Flowdesk
+# Social Reading Tracker
 
-Flowdesk is a backend-first issue-tracking system for teams. The planned REST API will let users manage projects and project members, create and work on issues, and collaborate through comments and labels. A future frontend can use the API for project views, issue lists or boards, and issue details; the backend will enforce validation, workflow rules, and access permissions.
+A backend-first social reading app for keeping track of books and sharing reading activity with friends. Users will be able to save books they want to read, are reading, or have read; connect with friends; and share reviews and comments. The project is inspired by social reading communities, while defining its own product and identity.
 
-The application is currently at the foundation stage. It has a Spring Boot application, PostgreSQL configuration, a health endpoint, and an initial database schema. User authentication and the project and issue APIs are planned, but are not implemented yet.
+The application is at the foundation stage. It has a Spring Boot application, PostgreSQL configuration, a health endpoint, and an initial reader-domain database schema for books, personal shelves, friendships, reviews, and comments. The Java persistence entities have not yet been migrated from the previous issue-tracking idea, so they still need to be updated to match this schema. User authentication and the reading and social APIs are planned, not yet implemented.
 
 ## Technology
 
@@ -29,7 +29,7 @@ Prerequisites: Java 21, Docker with the Compose plugin, and a running Docker dae
    ./mvnw spring-boot:run
    ```
 
-The API uses the default local database settings from `application.yaml` (`flowdesk` on `localhost:5432`, user `postgres`). The Compose database service creates that database and runs the SQL scripts in `db/init` when its data volume is first initialized.
+The API uses the default local database settings from `application.yaml` (`flowdesk` on `localhost:5432`, user `postgres`). The Compose database service creates that database and runs the SQL scripts in `db/init` only when its data volume is first initialized. Existing volumes are not migrated by editing these scripts; back up any data before applying a migration or recreating a volume.
 
 Check application health at <http://localhost:8080/actuator/health>. OpenAPI UI is available at <http://localhost:8080/swagger-ui/index.html>; as API endpoints are added, they will appear there.
 
