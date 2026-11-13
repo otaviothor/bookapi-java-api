@@ -8,7 +8,7 @@ The phases are ordered so each can be implemented and exercised before building 
 
 - [x] 0.1 Create a Spring Boot project with Java and Maven
 - [x] 0.2 Add Spring Web, Spring Data JPA, Validation, PostgreSQL, and Lombok dependencies
-- [x] 0.3 Configure application profiles for development and test
+- [ ] 0.3 Configure application profiles for development and test
 - [x] 0.4 Add a `.gitignore` for Java, Maven, IDE, and environment files
 - [x] 0.5 Add a basic health endpoint
 - [x] 0.6 Create the initial package structure
@@ -17,7 +17,7 @@ The phases are ordered so each can be implemented and exercised before building 
 ## Phase 1: Agree on the API and Data Foundations
 
 - [ ] 1.1 Define controller, service, repository, entity, DTO, mapper, and exception responsibilities
-- [ ] 1.2 Keep API request/response models separate from persistence entities
+- [x] 1.2 Keep API request/response models separate from persistence entities
 - [ ] 1.3 Define a consistent success and error response format
 - [ ] 1.4 Add global exception handling with `@RestControllerAdvice`
 - [ ] 1.5 Add request validation with clear validation messages
@@ -31,7 +31,7 @@ The phases are ordered so each can be implemented and exercised before building 
 
 **User flow:** A person creates an account, logs in, and manages their reader profile.
 
-- [ ] 2.1 Create the user model with name, unique email, password hash, and timestamps
+- [x] 2.1 Create the user model with name, unique email, password hash, and timestamps
 - [ ] 2.2 Hash passwords; never store or return plaintext passwords
 - [ ] 2.3 Add registration, login, and current-user endpoints
 - [ ] 2.4 Protect private endpoints and define authorization rules
@@ -47,7 +47,7 @@ The phases are ordered so each can be implemented and exercised before building 
 - [ ] 3.2 Add endpoints to create, retrieve, search, and browse books
 - [ ] 3.3 Define how duplicate books are detected and handled
 - [ ] 3.4 Create a personal shelf entry linking a reader to a book
-- [ ] 3.5 Support statuses: `WANT_TO_READ`, `READING`, `READ`, and `DID_NOT_FINISH`
+- [x] 3.5 Support statuses: `WANT_TO_READ`, `READING`, `READ`, and `DID_NOT_FINISH`
 - [ ] 3.6 Add endpoints to add a book to a shelf, change its status, retrieve shelf entries, and remove an entry
 - [ ] 3.7 Support filtering shelves by status, sorting, and pagination
 - [ ] 3.8 Test book search, duplicate handling, shelf changes, and invalid status values
@@ -56,7 +56,7 @@ The phases are ordered so each can be implemented and exercised before building 
 
 **User flow:** A reader sends a friend request, the recipient accepts or declines it, and friends can discover each other's permitted reading activity.
 
-- [ ] 4.1 Create a friendship model with requester, recipient, status, and timestamps
+- [x] 4.1 Create a friendship model with requester, recipient, status, and timestamps
 - [ ] 4.2 Support sending, accepting, declining, and cancelling requests, and removing friends
 - [ ] 4.3 Prevent duplicate, self-directed, and conflicting friend requests
 - [ ] 4.4 Add endpoints to find readers and view pending requests and a user's friends
@@ -80,7 +80,7 @@ The phases are ordered so each can be implemented and exercised before building 
 
 - [ ] 6.1 Define service-layer transaction boundaries
 - [ ] 6.2 Ensure `updated_at` is refreshed consistently on updates
-- [ ] 6.3 Add indexes for common lookups, including book titles, user shelves, friendship relationships, and comments
+- [x] 6.3 Add indexes for common lookups, including book titles, user shelves, friendship relationships, and comments
 - [ ] 6.4 Use UTC consistently for date/time values
 - [ ] 6.5 Add request correlation IDs and useful application logging
 - [ ] 6.6 Add unit, controller, repository, and PostgreSQL-compatible integration tests for core behavior

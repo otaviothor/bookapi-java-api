@@ -1,9 +1,9 @@
 spring:
   application:
-    name: flowdesk
+    name: bookapi
 
   datasource:
-    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/flowdesk}
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/bookapi}
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
@@ -26,7 +26,7 @@ management:
 logging:
   level:
     root: INFO
-    com.flowdesk: DEBUG
+    com.bookapi: DEBUG
     org.springframework.web: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE

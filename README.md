@@ -2,7 +2,7 @@
 
 A backend-first social reading app for keeping track of books and sharing reading activity with friends. Users will be able to save books they want to read, are reading, or have read; connect with friends; and share reviews and comments. The project is inspired by social reading communities, while defining its own product and identity.
 
-The application is at the foundation stage. It has a Spring Boot application, PostgreSQL configuration, a health endpoint, and an initial reader-domain database schema for books, personal shelves, friendships, reviews, and comments. The Java persistence entities have not yet been migrated from the previous issue-tracking idea, so they still need to be updated to match this schema. User authentication and the reading and social APIs are planned, not yet implemented.
+The application is at the foundation stage. It has a Spring Boot application, PostgreSQL configuration, a health endpoint, reader-domain entities and DTOs, and an initial SQL schema for users, books, personal shelves, friendships, and comments. Reviews, database migration tooling, user authentication, and the reading and social APIs are not implemented yet.
 
 ## Technology
 
@@ -29,7 +29,7 @@ Prerequisites: Java 21, Docker with the Compose plugin, and a running Docker dae
    ./mvnw spring-boot:run
    ```
 
-The API uses the default local database settings from `application.yaml` (`flowdesk` on `localhost:5432`, user `postgres`). The Compose database service creates that database and runs the SQL scripts in `db/init` only when its data volume is first initialized. Existing volumes are not migrated by editing these scripts; back up any data before applying a migration or recreating a volume.
+The API uses the default local database settings from `application.yaml` (`bookapi` on `localhost:5432`, user `postgres`). The Compose database service creates that database and runs the SQL scripts in `db/init` only when its data volume is first initialized. Existing volumes are not migrated by editing these scripts; back up any data before applying a migration or recreating a volume.
 
 Check application health at <http://localhost:8080/actuator/health>. OpenAPI UI is available at <http://localhost:8080/swagger-ui/index.html>; as API endpoints are added, they will appear there.
 
@@ -46,7 +46,7 @@ The named PostgreSQL volume is preserved by this command. The Compose file curre
 The application reads database settings from `POSTGRES_URL`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`. For example, to use a non-default local database:
 
 ```bash
-POSTGRES_URL=jdbc:postgresql://localhost:5432/flowdesk \
+POSTGRES_URL=jdbc:postgresql://localhost:5432/bookapi \
 POSTGRES_USER=postgres \
 POSTGRES_PASSWORD=your-local-password \
 ./mvnw spring-boot:run

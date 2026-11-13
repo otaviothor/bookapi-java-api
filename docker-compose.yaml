@@ -3,11 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: flowdesk-app
+    container_name: bookapi-app
     ports:
       - "8080:8080"
     environment:
-      POSTGRES_URL: jdbc:postgresql://db:5432/flowdesk
+      POSTGRES_URL: jdbc:postgresql://db:5432/bookapi
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     depends_on:
@@ -17,9 +17,9 @@ services:
 
   db:
     image: postgres:16-alpine
-    container_name: flowdesk-db
+    container_name: bookapi-db
     environment:
-      POSTGRES_DB: flowdesk
+      POSTGRES_DB: bookapi
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -28,7 +28,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d flowdesk"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bookapi"]
       interval: 10s
       timeout: 5s
       retries: 10
